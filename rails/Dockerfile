@@ -1,3 +1,3 @@
-FROM ruby:2.4.3
+FROM ruby
 
-RUN gem i rails -N -v 5.1.4
+RUN gem i rails -N
