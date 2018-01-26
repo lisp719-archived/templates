@@ -1,6 +1,6 @@
 version: '3'
 services:
-  ruby:
+  hello:
     image: hello-world
     ports:
       - "3000:3000"
@@ -8,8 +8,6 @@ services:
       - ./code:/code
       - cache-data:/cache
     working_dir: /code
-    command: bash
-    tty: true
 
 volumes:
   cache-data:
