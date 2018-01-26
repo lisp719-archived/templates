@@ -1,11 +1,14 @@
 version: '3'
 services:
   app:
-    image: lisp719/docker:rails
+    image: hello-world
     ports:
       - "3000:3000"
     volumes:
+      # default
       - .:/code
+
+      # ruby
       - gem-data:/usr/local/bundle
     working_dir: /code
 
