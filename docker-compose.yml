@@ -1,11 +1,11 @@
 version: '3'
 services:
-  hello:
     image: hello-world
+  app:
     ports:
       - "3000:3000"
     volumes:
-      - ./code:/code
+      - .:/code
       - cache-data:/cache
     working_dir: /code
 
