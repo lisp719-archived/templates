@@ -1,13 +1,13 @@
 version: '3'
 services:
-    image: hello-world
   app:
+    image: lisp719/docker:rails
     ports:
       - "3000:3000"
     volumes:
       - .:/code
-      - cache-data:/cache
+      - gem-data:/usr/local/bundle
     working_dir: /code
 
 volumes:
-  cache-data:
+  gem-data:
