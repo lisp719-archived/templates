@@ -33,6 +33,10 @@ services: &rails
       - gem-data:/usr/local/bundle
     working_dir: /code
 
+services: &redis
+  app:
+    image: redis:alpine
+
 services:
   <<: *hello
 
