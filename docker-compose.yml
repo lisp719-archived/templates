@@ -1,25 +1,40 @@
 version: '3'
-services:
+
+services: &django
   app:
-    image: lisp719/docker:hello
-    environment:
-      POSTGRES_DB: lisp719
+    image: lisp719/docker:django
     ports:
       - "3000:3000"
     volumes:
-      # default
       - .:/code
-
-      # postgres
-      - pg-data:/var/lib/postgresql/data
-
-      # python
       - bin-data:/usr/local/bin
       - pip-data:/usr/local/lib/python3.6/site-packages
+    working_dir: /code
 
-      # ruby
+services: &hello
+  app:
+    image: lisp719/docker:hello
+
+services: &postgres
+  app:
+    image: postgres:alpine
+    environment:
+      POSTGRES_DB: lisp719
+    volumes:
+      - pg-data:/var/lib/postgresql/data
+
+services: &rails
+  app:
+    image: lisp719/docker:rails
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/code
       - gem-data:/usr/local/bundle
     working_dir: /code
+
+services:
+  <<: *hello
 
 volumes:
   bin-data:
