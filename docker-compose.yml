@@ -19,7 +19,7 @@ services: &postgres
   app:
     image: postgres:alpine
     environment:
-      POSTGRES_DB: lisp719
+      POSTGRES_USER: root
     volumes:
       - pg-data:/var/lib/postgresql/data
 
