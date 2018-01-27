@@ -7,7 +7,7 @@ services: &django
       - "3000:3000"
     volumes:
       - .:/code
-      - bin-data:/usr/local/bin
+      - pip-bin-data:/usr/local/bin
       - pip-data:/usr/local/lib/python3.6/site-packages
     working_dir: /code
 
@@ -37,7 +37,7 @@ services:
   <<: *hello
 
 volumes:
-  bin-data:
   gem-data:
+  pip-bin-data:
   pip-data:
   pg-data:
