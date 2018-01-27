@@ -8,9 +8,15 @@ services:
       # default
       - .:/code
 
+      # python
+      - bin-data:/usr/local/bin
+      - pip-data:/usr/local/lib/python3.6/site-packages
+
       # ruby
       - gem-data:/usr/local/bundle
     working_dir: /code
 
 volumes:
+  bin-data:
   gem-data:
+  pip-data:
