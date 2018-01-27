@@ -8,6 +8,9 @@ services:
       # default
       - .:/code
 
+      # postgres
+      - psql-data:/var/lib/postgresql/data
+
       # python
       - bin-data:/usr/local/bin
       - pip-data:/usr/local/lib/python3.6/site-packages
@@ -20,3 +23,4 @@ volumes:
   bin-data:
   gem-data:
   pip-data:
+  psql-data:
