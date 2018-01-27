@@ -15,6 +15,14 @@ services: &hello
   app:
     image: lisp719/docker:hello
 
+services: &mysql
+  app:
+    image: mysql
+    environment:
+      MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    volumes:
+      - mysql-data:/var/lib/mysql
+
 services: &postgres
   app:
     image: postgres:alpine
@@ -42,6 +50,7 @@ services:
 
 volumes:
   gem-data:
+  mysql-data:
   pip-bin-data:
   pip-data:
   pg-data:
