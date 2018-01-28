@@ -20,6 +20,8 @@ services: &mysql
     image: mysql
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
+    ports:
+      - "9999:3306"
     volumes:
       - mysql-data:/var/lib/mysql
 
