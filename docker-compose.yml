@@ -44,6 +44,8 @@ services: &rails
 services: &redis
   app:
     image: redis:alpine
+    ports:
+      - "9999:6379"
 
 services:
   <<: *hello
