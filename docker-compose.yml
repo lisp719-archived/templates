@@ -28,6 +28,8 @@ services: &postgres
     image: postgres:alpine
     environment:
       POSTGRES_USER: root
+    ports:
+      - "9999:5432"
     volumes:
       - pg-data:/var/lib/postgresql/data
 
