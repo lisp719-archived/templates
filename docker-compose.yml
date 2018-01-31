@@ -48,6 +48,7 @@ services: &postgres
 services: &rails
   app:
     image: lisp719/docker:rails
+    command: rails s -b 0 -p 3000
     ports:
       - "3000:3000"
     volumes:
