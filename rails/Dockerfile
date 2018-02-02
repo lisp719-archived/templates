@@ -1,3 +1,7 @@
-FROM python:3.6.4
+FROM ruby:2.5.0
 
-RUN pip install django==2.0.1 pipenv==9.0.3
+ENV LANG C.UTF-8
+
+RUN apt-get update && apt-get install -y nodejs
+COPY ./.gemrc /root/
+RUN gem i rails -v 5.1.4
