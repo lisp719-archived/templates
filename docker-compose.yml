@@ -31,7 +31,7 @@ services: &mysql
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     ports:
-      - "9999:3306"
+      - "3307:3306"
     volumes:
       - mysql-data:/var/lib/mysql
 
@@ -41,7 +41,7 @@ services: &postgres
     environment:
       POSTGRES_USER: root
     ports:
-      - "9999:5432"
+      - "5433:5432"
     volumes:
       - pg-data:/var/lib/postgresql/data
 
@@ -59,8 +59,6 @@ services: &rails
 services: &redis
   app:
     image: redis:alpine
-    ports:
-      - "9999:6379"
 
 services:
   <<: *hello
