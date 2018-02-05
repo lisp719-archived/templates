@@ -1,0 +1,10 @@
+FROM ruby:2.4.3
+
+ENV LANG C.UTF-8
+
+RUN apt-get update
+RUN apt-get install -y qt5-default libqt5webkit5-dev gstreamer1.0-plugins-base gstreamer1.0-tools gstreamer1.0-x
+COPY ./.gemrc /root/
+RUN gem i capybara-webkit:1.11.1
+RUN gem i rails:5.1.4
+RUN apt-get install -y nodejs
