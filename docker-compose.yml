@@ -12,7 +12,7 @@ services: &angular
 
 services: &django
   app:
-    image: lisp719/docker:django
+    image: lisp719/docker:python3.6
     ports:
       - "3000:3000"
     volumes:
@@ -37,7 +37,7 @@ services: &mysql
 
 services: &rails
   app:
-    image: lisp719/docker:rails
+    image: lisp719/docker:ruby2.4
     command: rails s -b 0
     depends_on:
       - db
