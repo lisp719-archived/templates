@@ -1,8 +1,8 @@
 version: '3'
 
-services: &angular
+services: &node
   app:
-    image: lisp719/docker:angular
+    image: lisp719/docker:node9.5
     command: ng serve -H 0 -p 3000
     ports:
       - "3000:3000"
