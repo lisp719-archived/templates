@@ -2,7 +2,7 @@ version: '3'
 
 services: &clojure
   app:
-    image: clojure:alpine
+    image: lisp719/docker:clojure
     command: lein repl :headless :host 0 :port 12345
     ports:
       - "3000:3000"
