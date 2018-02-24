@@ -7,5 +7,3 @@ RUN apt-get install -y qt5-default libqt5webkit5-dev gstreamer1.0-plugins-base g
 RUN echo install: -N >> /root/.gemrc
 RUN echo update: -N >> /root/.gemrc
 RUN gem i capybara-webkit:1.11.1
-RUN gem i rails:5.1.4
-RUN apt-get install -y nodejs
