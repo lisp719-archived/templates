@@ -2,7 +2,7 @@ version: '3'
 
 services: &clojure
   app:
-    image: lisp719/docker:clojure
+    image: clojure:alpine
     command: lein repl :headless :host 0 :port 12345
     ports:
       - "3000:3000"
@@ -12,19 +12,9 @@ services: &clojure
       - m2-data:/root/.m2
     working_dir: /code
 
-services: &node
-  app:
-    image: lisp719/docker:node9.5
-    command: ng serve -H 0 -p 3000
-    ports:
-      - "3000:3000"
-    volumes:
-      - .:/code
-    working_dir: /code
-
 services: &django
   app:
-    image: lisp719/docker:python3.6
+    image: python:3.6
     ports:
       - "3000:3000"
     volumes:
@@ -33,9 +23,9 @@ services: &django
       - pip-data:/usr/local/lib/python3.6/site-packages
     working_dir: /code
 
-services: &hello
+services: &hello-world
   app:
-    image: lisp719/docker:hello
+    image: hello-world
 
 services: &mysql
   app:
@@ -43,13 +33,13 @@ services: &mysql
     environment:
       MYSQL_ALLOW_EMPTY_PASSWORD: "yes"
     ports:
-      - "3307:3306"
+      - "3306:3306"
     volumes:
       - mysql-data:/var/lib/mysql
 
 services: &rails
   app:
-    image: lisp719/docker:ruby2.4
+    image: ruby
     command: rails s -b 0
     depends_on:
       - db
@@ -64,7 +54,7 @@ services: &rails
     environment:
       POSTGRES_USER: root
     ports:
-      - "5433:5432"
+      - "5432:5432"
     volumes:
       - pg-data:/var/lib/postgresql/data
 
@@ -73,7 +63,7 @@ services: &redis
     image: redis:alpine
 
 services:
-  <<: *hello
+  <<: *hello-world
 
 volumes:
   gem-data:
