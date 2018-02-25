@@ -9,6 +9,7 @@ services: &clojure
       - "12345:12345"
     volumes:
       - .:/code
+      - ~/.lein:/root/.lein
       - m2-data:/root/.m2
     working_dir: /code
 
