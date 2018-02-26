@@ -15,9 +15,10 @@ services: &clojure
 
 services: &django
   app:
-    image: python:3.6
+    image: python:3.6-alpine
+    command: python manage.py runserver 0:8080
     ports:
-      - "3000:3000"
+      - "8080:8080"
     volumes:
       - .:/code
       - pip-bin-data:/usr/local/bin
