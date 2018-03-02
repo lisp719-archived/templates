@@ -2,8 +2,10 @@ version: '3'
 
 services:
   app:
-    image: python:3.6
+    build: .
     command: python manage.py runserver 0:8000
+    depends_on:
+      - db
     environment:
       DEBUG: 1
       PYTHONUNBUFFERED: 1
@@ -14,8 +16,6 @@ services:
       - bin-data:/usr/local/bin
       - pip-data:/usr/local/lib/python3.6/site-packages
     working_dir: /code
-    depends_on:
-      - db
   db:
     image: postgres:alpine
     ports:
