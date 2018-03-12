@@ -1,3 +1,3 @@
 FROM python:3.6
 
-RUN pip install django pipenv
+RUN pip install django
