@@ -9,9 +9,9 @@ services:
     ports:
       - "3000:3000"
     volumes:
-      - .:/code
+      - .:${PWD}
       - gem-data:/usr/local/bundle
-    working_dir: /code
+    working_dir: ${PWD}
   db:
     image: postgres:alpine
     ports:

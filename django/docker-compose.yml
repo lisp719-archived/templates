@@ -12,10 +12,10 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - .:/code
+      - .:${PWD}
       - bin-data:/usr/local/bin
       - pip-data:/usr/local/lib/python3.6/site-packages
-    working_dir: /code
+    working_dir: ${PWD}
   db:
     image: postgres:alpine
     ports:
