@@ -6,10 +6,13 @@ services:
     command: rails s -b 0
     depends_on:
       - db
+    environment:
+      LANG: C.UTF-8
     ports:
       - "3000:3000"
     volumes:
       - .:${PWD}
+      - ./.docker/.gemrc:/root/.gemrc
       - gem-data:/usr/local/bundle
     working_dir: ${PWD}
   db:
