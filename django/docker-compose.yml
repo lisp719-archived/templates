@@ -3,14 +3,14 @@ version: '3'
 services:
   app:
     image: python:3.6
-    command: python manage.py runserver 0:8000
+    command: python manage.py runserver 0:8080
     depends_on:
       - db
     environment:
       DEBUG: 1
       PYTHONUNBUFFERED: 1
     ports:
-      - "8000:8000"
+      - "8080:8080"
     volumes:
       - .:${PWD}
       - bin-data:/usr/local/bin
