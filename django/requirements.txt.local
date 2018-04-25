@@ -1,3 +1,2 @@
 -r requirements.txt
-python-language-server
-pycodestyle
+python-language-server[all]
