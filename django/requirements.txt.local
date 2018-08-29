@@ -1,2 +1,2 @@
 -r requirements.txt
-python-language-server[all]
+python-language-server[all]==0.20.0
