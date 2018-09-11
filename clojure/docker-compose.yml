@@ -10,8 +10,5 @@ services:
     volumes:
       - .:${PWD}
       - ~/.lein:/root/.lein
-      - m2-data:/root/.m2
+      - ~/.m2:/root/.m2
     working_dir: ${PWD}
-
-volumes:
-  m2-data:
