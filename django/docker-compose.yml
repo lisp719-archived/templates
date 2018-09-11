@@ -1,22 +1,6 @@
 version: '3'
 
 services:
-  app:
-    image: python:3.6
-    command: python manage.py runserver 0:8080
-    depends_on:
-      - db
-    environment:
-      DATABASE_URL: "postgres://postgres:@db:5432/postgres"
-      DEBUG: 1
-      PYTHONUNBUFFERED: 1
-    ports:
-      - "8080:8080"
-    volumes:
-      - .:${PWD}
-      - bin-data:/usr/local/bin
-      - pip-data:/usr/local/lib/python3.6/site-packages
-    working_dir: ${PWD}
   db:
     image: postgres:alpine
     ports:
@@ -25,6 +9,4 @@ services:
       - pg-data:/var/lib/postgresql/data
 
 volumes:
-  bin-data:
-  pip-data:
   pg-data:
