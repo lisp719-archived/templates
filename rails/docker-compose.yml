@@ -9,8 +9,10 @@ services:
     environment:
       DB_HOST: db
       LANG: C.UTF-8
+      WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
     ports:
       - '3000:3000'
+      - '3035:3035'
     volumes:
       - .:${PWD}
       - ./.docker/.gemrc:/root/.gemrc
