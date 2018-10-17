@@ -5,8 +5,8 @@ services:
     image: clojure:alpine
     command: lein repl :headless :host 0 :port 12345
     ports:
-      - "3000:3000"
-      - "12345:12345"
+      - '3000:3000'
+      - '12345:12345'
     volumes:
       - .:${PWD}
       - ~/.lein:/root/.lein

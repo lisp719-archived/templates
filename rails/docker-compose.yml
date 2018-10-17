@@ -10,7 +10,7 @@ services:
       DB_HOST: db
       LANG: C.UTF-8
     ports:
-      - "3000:3000"
+      - '3000:3000'
     volumes:
       - .:${PWD}
       - ./.docker/.gemrc:/root/.gemrc
@@ -19,10 +19,10 @@ services:
   db:
     image: postgres:alpine
     ports:
-      - "5432:5432"
+      - '5432:5432'
     volumes:
       - pg-data:/var/lib/postgresql/data
 
 volumes:
-  gem-data:
-  pg-data:
+  ? gem-data
+  ? pg-data
