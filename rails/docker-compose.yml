@@ -17,6 +17,7 @@ services:
       - .:${PWD}
       - ./.docker/.gemrc:/root/.gemrc
       - gem-data:/usr/local/bundle
+      - yarn-data:/usr/local/share/.cache/yarn/v2
     working_dir: ${PWD}
   db:
     image: postgres:alpine
@@ -28,3 +29,4 @@ services:
 volumes:
   ? gem-data
   ? pg-data
+  ? yarn-data
