@@ -9,7 +9,14 @@ dj-database-url = "*"
 Django = "*"
 
 [dev-packages]
-python-language-server = {version = "*", extras = ["all"]}
+python-language-server = "*"
+autopep8 = "*"
+mccabe = "*"
+pycodestyle = "*"
+pydocstyle = "*"
+pyflakes = "*"
+rope = "*"
+yapf = "*"
 
 [requires]
 python_version = "3.7"
