@@ -4,19 +4,15 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-dj-database-url = "*"
-"psycopg2-binary" = "*"
-Django = "*"
+django-heroku = "*"
+gunicorn = "*"
 
 [dev-packages]
-python-language-server = "*"
 autopep8 = "*"
-mccabe = "*"
-pycodestyle = "*"
-pydocstyle = "*"
-pyflakes = "*"
-rope = "*"
-yapf = "*"
+pylint = "*"
 
 [requires]
 python_version = "3.7"
+
+[scripts]
+server = "python manage.py runserver 0:8000"
