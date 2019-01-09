@@ -1,9 +1,9 @@
-version: '3'
+version: "3"
 
 services:
   app:
-    image: ruby
-    command: rails s -b 0
+    build: .
+    command: foreman start -f Procfile.dev -p 3000
     depends_on:
       - db
     environment:
@@ -11,22 +11,22 @@ services:
       LANG: C.UTF-8
       WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
     ports:
-      - '3000:3000'
-      - '3035:3035'
+      - "3000:3000"
+      - "3035:3035"
     volumes:
       - .:${PWD}
       - ./.docker/.gemrc:/root/.gemrc
       - gem-data:/usr/local/bundle
-      - yarn-data:/usr/local/share/.cache/yarn/v2
+      - yarn-data:/usr/local/share/.cache/yarn
     working_dir: ${PWD}
   db:
     image: postgres:alpine
     ports:
-      - '5432:5432'
+      - "5432:5432"
     volumes:
       - pg-data:/var/lib/postgresql/data
 
 volumes:
-  ? gem-data
-  ? pg-data
-  ? yarn-data
+  gem-data:
+  pg-data:
+  yarn-data:
