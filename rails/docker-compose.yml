@@ -3,7 +3,7 @@ version: "3"
 services:
   app:
     build: .
-    command: rails s -b 0
+    command: foreman start -f Procfile.dev -p 3000
     depends_on:
       - db
     environment:
