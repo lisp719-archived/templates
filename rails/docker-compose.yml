@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 services:
   app:
@@ -11,8 +11,8 @@ services:
       LANG: C.UTF-8
       WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
     ports:
-      - '3000:3000'
-      - '3035:3035'
+      - "3000:3000"
+      - "3035:3035"
     volumes:
       - .:${PWD}
       - ./.docker/.gemrc:/root/.gemrc
@@ -22,11 +22,11 @@ services:
   db:
     image: postgres:alpine
     ports:
-      - '5432:5432'
+      - "5432:5432"
     volumes:
       - pg-data:/var/lib/postgresql/data
 
 volumes:
-  ? gem-data
-  ? pg-data
-  ? yarn-data
+  gem-data:
+  pg-data:
+  yarn-data:
