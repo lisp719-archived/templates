@@ -1,0 +1,19 @@
+AllCops:
+  Exclude:
+    - bin/**/*
+    - db/**/*
+
+Metrics/LineLength:
+  Enabled: false
+
+Rails:
+  Enabled: true
+
+Style/ClassAndModuleChildren:
+  Enabled: false
+
+Style/Documentation:
+  Enabled: false
+
+Style/FrozenStringLiteralComment:
+  Enabled: false
