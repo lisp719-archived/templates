@@ -1,5 +1,4 @@
 gem_group :development do
-  gem 'foreman'
   gem 'guard'
   gem 'guard-minitest'
   gem 'guard-rubocop'

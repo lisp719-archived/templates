@@ -1,18 +1,19 @@
 version: "3"
 
 services:
-  app:
+  app: &app
     build: .
-    command: bundle exec foreman start -f Procfile.dev -p 3000
+    command: ./bin/rails s -b 0
     depends_on:
       - db
     environment:
       DB_HOST: db
       LANG: C.UTF-8
-      WEBPACKER_DEV_SERVER_HOST: 0.0.0.0
+      WEBPACKER_DEV_SERVER_HMR: "true"
+      WEBPACKER_DEV_SERVER_HOST: webpacker
+      WEBPACKER_DEV_SERVER_PUBLIC: 0.0.0.0:3035
     ports:
       - "3000:3000"
-      - "3035:3035"
     volumes:
       - .:${PWD}
       - ./.docker/.gemrc:/root/.gemrc
@@ -25,6 +26,13 @@ services:
       - "5432:5432"
     volumes:
       - pg-data:/var/lib/postgresql/data
+  webpacker:
+    <<: *app
+    command: ./bin/webpack-dev-server
+    depends_on:
+      - app
+    ports:
+      - "3035:3035"
 
 volumes:
   gem-data:
