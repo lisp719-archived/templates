@@ -7,9 +7,9 @@ end
 
 environment <<EOS
   config.generators do |g|
-    g.stylesheets false
-    g.javascripts false
+    g.assets false
     g.helper false
+    g.jbuilder false
   end
 
 EOS
