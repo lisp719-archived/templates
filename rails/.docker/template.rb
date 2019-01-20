@@ -13,3 +13,6 @@ environment <<EOS
   end
 
 EOS
+
+uncomment_lines 'bin/setup', Regexp.escape("system('bin/yarn')")
+uncomment_lines 'bin/update', Regexp.escape("system('bin/yarn')")
