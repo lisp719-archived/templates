@@ -8,6 +8,7 @@ services:
       - db
     environment:
       DB_HOST: db
+      DB_USERNAME: postgres
       LANG: C.UTF-8
       WEBPACKER_DEV_SERVER_HMR: "true"
       WEBPACKER_DEV_SERVER_HOST: webpacker

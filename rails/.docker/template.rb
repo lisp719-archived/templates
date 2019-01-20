@@ -5,14 +5,20 @@ gem_group :development do
   gem 'rubocop', require: false
 end
 
-environment <<EOS
+environment <<CONFIG
   config.generators do |g|
     g.assets false
     g.helper false
     g.jbuilder false
   end
 
-EOS
+CONFIG
 
 uncomment_lines 'bin/setup', Regexp.escape("system('bin/yarn')")
 uncomment_lines 'bin/update', Regexp.escape("system('bin/yarn')")
+
+insert_into_file 'config/database.yml', <<-CONFIG, after: "default: &default\n"
+  host: <%= ENV.fetch("DB_HOST") { "localhost" } %>
+  username: <%= ENV.fetch("DB_USERNAME") { "postgres" } %>
+
+CONFIG
