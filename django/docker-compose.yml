@@ -1,0 +1,20 @@
+version: "3"
+
+services:
+  app:
+    image: python:3.7
+    command: python manage.py runserver 0:8000
+    environment:
+      DEBUG: 1
+      PYTHONUNBUFFERED: 1
+    ports:
+      - "8000:8000"
+    volumes:
+      - .:${PWD}
+      - bin-data:/usr/local/bin
+      - pip-data:/usr/local/lib/python3.7/site-packages
+    working_dir: ${PWD}
+
+volumes:
+  bin-data:
+  pip-data:
