@@ -1,2 +1,2 @@
 -r requirements.txt
-python-language-server[all]
+python-language-server[mccabe, pycodestyle, pyflakes, rope, yapf]
