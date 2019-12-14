@@ -15,7 +15,6 @@ environment <<CONFIG
 CONFIG
 
 uncomment_lines 'bin/setup', Regexp.escape("system('bin/yarn')")
-uncomment_lines 'bin/update', Regexp.escape("system('bin/yarn')")
 
 insert_into_file 'config/database.yml', <<-CONFIG, after: "default: &default\n"
   host: <%= ENV.fetch("DB_HOST") { "localhost" } %>
