@@ -9,6 +9,13 @@ services:
     image: mongo-express
     ports:
       - "8081:8081"
+  postgres:
+    image: postgres:alpine
+    ports:
+      - "5432:5432"
+    volumes:
+      - pg-data:/var/lib/postgresql/data
 
 volumes:
   mongo-data:
+  pg-data:
