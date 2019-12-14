@@ -1,9 +1,9 @@
+FROM node:12.13.1-slim as node
+
 FROM ruby:2.6
-RUN apt-get update -qq
 
-RUN curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | apt-key add -
-RUN curl -sL https://deb.nodesource.com/setup_8.x | bash
-RUN echo "deb https://dl.yarnpkg.com/debian/ stable main" | tee /etc/apt/sources.list.d/yarn.list
+COPY --from=node /usr/local/bin/node /usr/local/bin/
+COPY --from=node /opt/yarn-* /opt/yarn
 
-RUN apt-get install -y nodejs
-RUN apt-get update && apt-get install -y yarn
+RUN ln -s /opt/yarn/bin/yarn /usr/local/bin/yarn \
+  && ln -s /opt/yarn/bin/yarnpkg /usr/local/bin/yarnpkg
