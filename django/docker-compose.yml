@@ -12,7 +12,7 @@ services:
     volumes:
       - .:${PWD}
       - bin-data:/usr/local/bin
-      - pip-data:/usr/local/lib/python3.7/site-packages
+      - pip-data:/usr/local/lib/python3.8/site-packages
     working_dir: ${PWD}
 
 volumes:
