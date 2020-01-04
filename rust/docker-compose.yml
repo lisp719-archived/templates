@@ -4,8 +4,10 @@ services:
   app:
     image: rust:1.40-alpine
     volumes:
+      - .:${PWD}
       - cargo-data:/usr/local/cargo
       - rustup-data:/usr/local/rustup
+    working_dir: ${PWD}
 
 volumes:
   cargo-data:
