@@ -1,6 +1,6 @@
-FROM node:12.13.1-slim as node
+FROM node:12.14.1-alpine as node
 
-FROM ruby:2.6
+FROM ruby:2.7
 
 COPY --from=node /usr/local/bin/node /usr/local/bin/
 COPY --from=node /opt/yarn-* /opt/yarn
