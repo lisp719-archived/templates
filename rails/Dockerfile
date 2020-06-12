@@ -1,4 +1,4 @@
-FROM node:12.14.1-slim as node
+FROM node:slim as node
 
 FROM ruby:2.7
 
